@@ -16,6 +16,5 @@
 		"psr-4": {
 			"Papac\\": "src/"
 		}
-	},
-	"minimum-stability": "dev"
+	}
 }

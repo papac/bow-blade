@@ -17,17 +17,39 @@ php bow add:service BladeTemplate
 ```
 
 Ajoutez le service dans le conteneur de service.
-Dans le service `BladeTemplate` situé dans app/Service.
+
+Dans le service `BladeTemplateService` situé dans `app/Services`.
+
 Dans la methode `make` ajoutez le code suivant
 
 ```php
-use Bow\View\View;
+<?php
 
-public function make($config)
+namespace App\Services;
+
+use Bow\View\View;
+use Bow\Application\Configuration;
+use \Bow\Application\Services as BowService;
+
+class BladeTemplateService extends BowService
 {
-	$view = View::singleton();
-	$view->pushEngine('blade', \Papac\Blade::class);
-	$view->setEngine('blade');
+    /**
+     * Démarre le serivce
+     */
+    public function start()
+    {
+        View::singleton()->setEngine('blade');
+    }
+
+    /**
+     * @param Configuration $config
+     */
+    public function make($config)
+    {
+        View::configure($config);
+        $view = View::singleton();
+        $view->pushEngine('blade', \Papac\Blade::class);
+    }
 }
 ```
 

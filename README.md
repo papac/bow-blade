@@ -57,9 +57,7 @@ class BladeTemplateService extends BowService
 Et ajoutez votre service dans le conteneur.
 
 ```php
-	/**
-     * Liste service des services
-     */
+	...
     'services' => [
         /**
          * Mettez ici vos service.
@@ -75,10 +73,7 @@ Vous pouvez utilisez directement le service formie dans le package.
 Dans le fichier `classes.php` du dossier `config`. Ajoutez le service comme suit:
 
 ```php
-
-	/**
-     * Liste service des services
-     */
+	,,,
     'services' => [
         /**
          * Mettez ici vos service.

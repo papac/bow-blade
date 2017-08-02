@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace Papac;
 
 use Bow\View\View;
 use Bow\Application\Configuration;

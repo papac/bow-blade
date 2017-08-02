@@ -26,7 +26,7 @@ Dans la methode `make` ajoutez le code suivant
 ```php
 <?php
 
-namespace App\Services;
+namespace Papac;
 
 use Bow\View\View;
 use Bow\Application\Configuration;

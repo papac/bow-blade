@@ -29,7 +29,7 @@ namespace App\Services;
 
 use Bow\View\View;
 use Bow\Application\Configuration;
-use \Bow\Application\Services as BowService;
+use Bow\Application\Services as BowService;
 
 class BladeTemplateService extends BowService
 {

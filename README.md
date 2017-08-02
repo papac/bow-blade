@@ -73,7 +73,7 @@ Vous pouvez utilisez directement le service formie dans le package.
 Dans le fichier `classes.php` du dossier `config`. Ajoutez le service comme suit:
 
 ```php
-,,,
+...
 'services' => [
     /**
      * Mettez ici vos service.

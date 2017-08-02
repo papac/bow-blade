@@ -11,14 +11,15 @@ composer require papac/bow-blade
 ```
 
 Créez un service bow.
+Cw qui vous donnera complètement de control sur le service si vous voudriez y ajouter du code
 
 ```
 php bow add:service BladeTemplate
 ```
 
-Ajoutez le service dans le conteneur de service.
+Ajoutez le service dans le conteneur de service. 
 
-Dans le service `BladeTemplateService` situé dans `app/Services`.
+Alors dans le service `BladeTemplateService` situé dans `app/Services`.
 
 Dans la methode `make` ajoutez le code suivant
 
@@ -51,6 +52,40 @@ class BladeTemplateService extends BowService
         $view->pushEngine('blade', \Papac\Blade::class);
     }
 }
+```
+
+Et ajoutez votre service dans le conteneur.
+
+```php
+	/**
+     * Liste service des services
+     */
+    'services' => [
+        /**
+         * Mettez ici vos service.
+         */
+         App\Services\BladeTemplateService::class
+    ]
+```
+
+## Utilisez le service fournie
+
+Vous pouvez utilisez directement le service formie dans le package.
+
+Dans le fichier `classes.php` du dossier `config`. Ajoutez le service comme suit:
+
+```php
+
+	/**
+     * Liste service des services
+     */
+    'services' => [
+        /**
+         * Mettez ici vos service.
+         */
+         \Papac\BladeTemplateService::class
+    ]
+
 ```
 
 ## Author

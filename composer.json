@@ -1,0 +1,23 @@
+{
+    "name": "papac/bow-blade",
+    "description": "The bow framework blade template support",
+    "type": "library",
+    "require": {
+        "duncan3dc/blade": "^3.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Franck Dakia",
+            "email": "dakiafranck@gmail.com"
+        }
+    ],
+    "autoload": {
+    	"psr-4": [
+    		{
+    			"Papac\\": "src/"
+    		}
+    	]
+    },
+    "minimum-stability": "dev"
+}

@@ -11,7 +11,7 @@ composer require papac/bow-blade
 ```
 
 Créez un service bow.
-> Ce qui vous donnera complètement de control sur le service si vous voudriez y ajouter du code
+> Ce qui vous donnera complètement le control sur le service si vous voudriez y ajouter du code
 
 ```
 php bow add:service BladeTemplate

@@ -4,9 +4,9 @@ namespace Papac;
 
 use Bow\View\EngineAbstract;
 use Bow\Application\Configuration;
-use duncan3dc\Laravel\Blade as BladeInstance;
+use duncan3dc\Laravel\BladeInstance as BladeInstance;
 
-class Blade extends extends EngineAbstract
+class Blade extends EngineAbstract
 {
     /**
      * @var BladeInstance
@@ -24,10 +24,8 @@ class Blade extends extends EngineAbstract
      */
     public function __construct(Configuration $config)
     {
-    	$this->config = $config;
-    	$this->template = new BladeInstance($config['view.path'], $config['view.cache'].'/view');
-
-        return $this->template;
+        $this->config = $config;
+        $this->template = new BladeInstance($config['view.path'], $config['view.cache'].'/view');
     }
 
     /**
@@ -35,16 +33,15 @@ class Blade extends extends EngineAbstract
      */
     public function render($filename, array $data = [])
     {
-    	$filename = $this->checkParseFile($filename);
-
-    	return $this->template->render($filename, $data);
+        $filename = $this->checkParseFile($filename, false);
+        return $this->template->render($filename, $data);
     }
 
     /**
-     * @return \Twig_Environment|\Twig_Loader_Filesystem
+     * @return BladeInstance
      */
     public function getTemplate()
     {
-    	return $this->template;
+        return $this->template;
     }
 }

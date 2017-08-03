@@ -22,7 +22,6 @@ class BladeTemplateService extends BowService
     public function make($config)
     {
         View::configure($config);
-        $view = View::singleton();
-        $view->pushEngine('blade', \Papac\Blade::class);
+        View::singleton()->pushEngine('blade', Blade::class);
     }
 }

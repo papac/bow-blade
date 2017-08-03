@@ -6,7 +6,7 @@ use Bow\View\EngineAbstract;
 use Bow\Application\Configuration;
 use duncan3dc\Laravel\BladeInstance as BladeInstance;
 
-class Blade extends EngineAbstract
+class BladeEngine extends EngineAbstract
 {
     /**
      * @var BladeInstance
@@ -19,7 +19,8 @@ class Blade extends EngineAbstract
     protected $name = 'blade';
 
     /**
-     * Blade constructor.
+     * BladeEngine constructor.
+     * 
      * @param Configuration $config
      */
     public function __construct(Configuration $config)
@@ -38,6 +39,8 @@ class Blade extends EngineAbstract
     }
 
     /**
+     * Get the BladeEngine instance
+     * 
      * @return BladeInstance
      */
     public function getTemplate()

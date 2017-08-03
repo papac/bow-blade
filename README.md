@@ -49,7 +49,7 @@ class BladeTemplateService extends BowService
     {
         View::configure($config);
         $view = View::singleton();
-        $view->pushEngine('blade', \Papac\Blade::class);
+        $view->pushEngine('blade', \Papac\BladeEngine::class);
     }
 }
 ```

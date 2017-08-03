@@ -11,7 +11,7 @@ composer require papac/bow-blade
 ```
 
 Créez un service bow.
-> Ce qui vous donnera complètement le control sur le service si vous voudriez y ajouter du code
+> Ce qui vous donnera complètement le control sur le service si vous voudriez y ajouter du code.
 
 ```
 php bow add:service BladeTemplate
@@ -68,7 +68,7 @@ Et ajoutez votre service dans le conteneur.
 
 ## Utilisez le service fournie
 
-Vous pouvez utilisez directement le service formie dans le package.
+Vous pouvez utiliser directement le service fournir dans le package.
 
 Dans le fichier `classes.php` du dossier `config`. Ajoutez le service comme suit:
 

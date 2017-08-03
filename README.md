@@ -62,7 +62,7 @@ Et ajoutez votre service dans le conteneur.
     /**
      * Mettez ici vos service.
      */
-     App\Services\BladeTemplateService::class
+     \App\Services\BladeTemplateService::class
 ]
 ```
 

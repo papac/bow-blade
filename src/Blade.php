@@ -19,7 +19,7 @@ class Blade extends EngineAbstract
     protected $name = 'blade';
 
     /**
-     * TwigEngine constructor.
+     * Blade constructor.
      * @param Configuration $config
      */
     public function __construct(Configuration $config)

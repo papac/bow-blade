@@ -2,8 +2,8 @@
 
 namespace Papac;
 
+use Bow\Config\Config;
 use Bow\View\EngineAbstract;
-use Bow\Application\Configuration;
 use duncan3dc\Laravel\BladeInstance as BladeInstance;
 
 class BladeEngine extends EngineAbstract
@@ -21,9 +21,9 @@ class BladeEngine extends EngineAbstract
     /**
      * BladeEngine constructor.
      * 
-     * @param Configuration $config
+     * @param Config $config
      */
-    public function __construct(Configuration $config)
+    public function __construct(Config $config)
     {
         $this->config = $config;
         $this->template = new BladeInstance($config['view.path'], $config['view.cache'].'/view');

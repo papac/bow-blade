@@ -3,10 +3,10 @@
 namespace Papac;
 
 use Bow\View\View;
-use Bow\Application\Configuration;
-use Bow\Application\Services as BowService;
+use Bow\Config\Config;
+use Bow\Application\Services;
 
-class BladeTemplateService extends BowService
+class BladeTemplateService extends Services
 {
     /**
      * Démarre le serivce
@@ -17,11 +17,13 @@ class BladeTemplateService extends BowService
     }
 
     /**
-     * @param Configuration $config
+     * Make view setting
+     * 
+     * @param Config $config
      */
-    public function make($config)
+    public function make(Config $config)
     {
+        View::pushEngine('blade', BladeEngine::class);
         View::configure($config);
-        View::singleton()->pushEngine('blade', BladeEngine::class);
     }
 }

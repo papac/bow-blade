@@ -54,32 +54,28 @@ class BladeTemplateService extends BowService
 }
 ```
 
-Et ajoutez votre service dans le conteneur.
+> Vous pouvez utiliser directement le service fournir dans le package. `Papac\BladeTemplateService::class`.
+
+## Configuration
+
+Dans le fichier `Loader.php` du dossier `app/Kernel`. Ajoutez le service comme suit:
 
 ```php
-...
-'services' => [
+/**
+ * All app services register
+ *
+ * @return array
+ */
+public function services()
+{
     /**
-     * Mettez ici vos service.
+     * Put here you service
      */
-     \App\Services\BladeTemplateService::class
-]
-```
-
-## Utilisez le service fournie
-
-Vous pouvez utiliser directement le service fournir dans le package.
-
-Dans le fichier `classes.php` du dossier `config`. Ajoutez le service comme suit:
-
-```php
-...
-'services' => [
-    /**
-     * Mettez ici vos service.
-     */
-     \Papac\BladeTemplateService::class
-]
+    return [
+        \Papac\BladeTemplateService::class,
+        // other
+    ];
+}
 ```
 
 ## Author

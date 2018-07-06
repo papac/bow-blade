@@ -20,13 +20,14 @@ class BladeEngine extends EngineAbstract
 
     /**
      * BladeEngine constructor.
-     * 
+     *
      * @param Config $config
      */
     public function __construct(Config $config)
     {
         $this->config = $config;
-        $this->template = new BladeInstance($config['view.path'], $config['view.cache'].'/view');
+
+        $this->template = new BladeInstance($config['view.path'], $config['view.cache']);
     }
 
     /**
@@ -35,12 +36,13 @@ class BladeEngine extends EngineAbstract
     public function render($filename, array $data = [])
     {
         $filename = $this->checkParseFile($filename, false);
+
         return $this->template->render($filename, $data);
     }
 
     /**
      * Get the BladeEngine instance
-     * 
+     *
      * @return BladeInstance
      */
     public function getTemplate()
@@ -48,3 +50,4 @@ class BladeEngine extends EngineAbstract
         return $this->template;
     }
 }
+

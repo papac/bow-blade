@@ -1,6 +1,6 @@
 # Bow blade support
 
-Support [Blade](https://laravel.com/docs/5.4/views) pour bow framework.
+Support [Blade](https://laravel.com/docs/5.7/views) pour bow framework.
 
 ## Usage
 
@@ -18,38 +18,38 @@ php bow add:service BladeTemplate
 ```
 
 Ajoutez le service dans le conteneur de service. 
-
 Alors dans le service `BladeTemplateService` situé dans `app/Services`.
-
 Dans la methode `make` ajoutez le code suivant
 
 ```php
-<?php
-
 namespace Papac;
 
 use Bow\View\View;
-use Bow\Application\Configuration;
-use Bow\Application\Services as BowService;
+use Bow\Config\Config;
+use Bow\Application\Service as BowPluginService;
 
-class BladeTemplateService extends BowService
+class BladeTemplateService extends BowPluginService
 {
+    /**
+     * Start Plungin
+     * 
+     * @param Config $config
+     */
+    public function make($config)
+    {
+        View::configure($config);
+        
+        $view = View::singleton();
+
+        $view->pushEngine('blade', \Papac\BladeEngine::class);
+    }
+
     /**
      * Démarre le serivce
      */
     public function start()
     {
         View::singleton()->setEngine('blade');
-    }
-
-    /**
-     * @param Configuration $config
-     */
-    public function make($config)
-    {
-        View::configure($config);
-        $view = View::singleton();
-        $view->pushEngine('blade', \Papac\BladeEngine::class);
     }
 }
 ```
@@ -81,3 +81,4 @@ public function services()
 ## Author
 
 Dakia Franck
+> SVP s'il y a un bogue sur le projet veuillez me contacter sur mon [slack](https://papac.slack.com)

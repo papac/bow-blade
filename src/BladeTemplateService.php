@@ -25,6 +25,6 @@ class BladeTemplateService extends Service
      */
     public function start()
     {
-        View::singleton()->setEngine('blade');
+        View::getInstance()->setEngine('blade');
     }
 }

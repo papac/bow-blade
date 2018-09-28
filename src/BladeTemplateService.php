@@ -14,9 +14,13 @@ class BladeTemplateService extends Service
      */
     public function make(Config $config)
     {
-        View::pushEngine('blade', BladeEngine::class);
+        $this->app->capsule('view', function() use ($config) {
+            View::pushEngine('blade', BladeEngine::class);
+            
+            View::configure($config);
 
-        View::configure($config);
+            return View::getInstance();
+        });
     }
 
     /**
@@ -25,6 +29,6 @@ class BladeTemplateService extends Service
      */
     public function start()
     {
-        View::getInstance()->setEngine('blade');
+        $this->app->capsule('view')->setEngine('blade');
     }
 }

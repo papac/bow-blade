@@ -51,4 +51,3 @@ class BladeEngine extends EngineAbstract
         return $this->template;
     }
 }
-

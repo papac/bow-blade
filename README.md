@@ -25,32 +25,32 @@ Dans la methode `make` ajoutez le code suivant
 namespace Papac;
 
 use Bow\View\View;
-use Bow\Config\Config;
-use Bow\Application\Service as BowPluginService;
+use Bow\Configuration\Loader;
+use Bow\Configuration\Configuration;
 
-class BladeTemplateService extends BowPluginService
+class BladeConfiguration extends Configuration
 {
-    /**
-     * Start Plungin
-     * 
-     * @param Config $config
-     */
-    public function make($config)
-    {
-        View::configure($config);
-        
-        $view = View::singleton();
+  /**
+   * Start Plungin
+   * 
+   * @param Loader $config
+   */
+  public function create(Loader $config)
+  {
+    View::configure($config);
 
-        $view->pushEngine('blade', \Papac\BladeEngine::class);
-    }
+    $view = View::singleton();
 
-    /**
-     * Démarre le serivce
-     */
-    public function start()
-    {
-        View::singleton()->setEngine('blade');
-    }
+    $view->pushEngine('blade', \Papac\BladeEngine::class);
+  }
+
+  /**
+   * Démarre le serivce
+   */
+  public function run()
+  {
+    View::singleton()->setEngine('blade');
+  }
 }
 ```
 
@@ -66,15 +66,15 @@ Dans le fichier `Loader.php` du dossier `app/Kernel`. Ajoutez le service comme s
  *
  * @return array
  */
-public function services()
+public function configurations()
 {
-    /**
-     * Put here you service
-     */
-    return [
-        \Papac\BladeTemplateService::class,
-        // other
-    ];
+  /**
+   * Put here you service
+   */
+  return [
+    \Papac\BladeConfiguration::class,
+    // other
+  ];
 }
 ```
 

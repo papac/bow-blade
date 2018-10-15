@@ -2,7 +2,7 @@
 
 namespace Papac;
 
-use Bow\Config\Config;
+use Bow\Configuration\Loader as Config;
 use Bow\View\EngineAbstract;
 use duncan3dc\Laravel\BladeInstance as BladeInstance;
 

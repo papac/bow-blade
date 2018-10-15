@@ -9,8 +9,7 @@ use Bow\Configuration\Configuration;
 class BladeConfiguration extends Configuration
 {
     /**
-     * @inheritDoc
-     * @throws
+     * @inheritdoc
      */
     public function create(Loader $config)
     {
@@ -26,8 +25,7 @@ class BladeConfiguration extends Configuration
     }
 
     /**
-     * @inheritDoc
-     * @throws
+     * @inheritdoc
      */
     public function start()
     {

@@ -3,7 +3,7 @@
 	"description": "The bow framework blade template support",
 	"type": "library",
 	"require": {
-		"bowphp/framework": "^3.*",
+		"bowphp/framework": "*",
 		"duncan3dc/blade": "^3.4"
 	},
 	"license": "MIT",

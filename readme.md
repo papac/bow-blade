@@ -22,6 +22,8 @@ Alors dans le service `BladeTemplateService` situé dans `app/Services`.
 Dans la methode `make` ajoutez le code suivant
 
 ```php
+<?php
+
 namespace Papac;
 
 use Bow\View\View;
@@ -31,25 +33,27 @@ use Bow\Configuration\Configuration;
 class BladeConfiguration extends Configuration
 {
   /**
-   * Start Plungin
-   * 
-   * @param Loader $config
+   * @inheritdoc
    */
   public function create(Loader $config)
   {
-    View::configure($config);
+    $config['view.engine'] = 'blade';
 
-    $view = View::singleton();
+    $this->container->bind('view', function () use ($config) {
+      View::pushEngine('blade', BladeEngine::class);
+      
+      View::configure($config);
 
-    $view->pushEngine('blade', \Papac\BladeEngine::class);
+      return View::getInstance();
+    });
   }
 
   /**
-   * Démarre le serivce
+   * @inheritdoc
    */
-  public function run()
+  public function start()
   {
-    View::singleton()->setEngine('blade');
+    $this->container->make('view');
   }
 }
 ```
@@ -72,13 +76,14 @@ public function configurations()
    * Put here you service
    */
   return [
-    \Papac\BladeConfiguration::class,
     // other
+    \Papac\BladeConfiguration::class,
   ];
 }
 ```
 
 ## Author
 
-Dakia Franck
-> SVP s'il y a un bogue sur le projet veuillez me contacter sur mon [slack](https://papac.slack.com)
+[DAKIA Franck](https://github.com/papac) - <dakiafranck@gmail.com> [@franck_dakia](https://twitter.com/@franck_dakia)
+
+> SVP s'il y a un bogue sur le projet veuillez me contacter sur mon [slack](https://bowphp.slack.com)

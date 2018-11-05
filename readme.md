@@ -10,7 +10,7 @@ Installez une copie du package avec [composer](https://getcomposer.org).
 composer require papac/bow-blade
 ```
 
-Vous pouvez utiliser directement la configuration `\Papac\BladeConfiguration::class` fournir dans le package et aller le [confirgué](#configuration) ou bien créer une configuration Bow. Ce qui vous donnera complètement le control sur la configuration si vous voudriez y ajouter du code.
+Vous pouvez utiliser directement la configuration `\Papac\BladeConfiguration::class` fournir dans le package et aller le [confirguer](#configuration) ou bien créer une configuration Bow. Ce qui vous donnera complètement le control sur la configuration si vous voudriez y ajouter du code.
 
 ### configuration manuellement
 

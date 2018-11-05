@@ -6,20 +6,20 @@ Support [Blade](https://laravel.com/docs/5.7/views) pour bow framework.
 
 Installez une copie du package avec [composer](https://getcomposer.org).
 
-```
+```bash
 composer require papac/bow-blade
 ```
 
-Créez un service bow.
+Créez un service Bow.
 > Ce qui vous donnera complètement le control sur le service si vous voudriez y ajouter du code.
 
-```
-php bow add:service BladeTemplate
+```bash
+php bow add:configuration BladeConfiguration
 ```
 
 Ajoutez le service dans le conteneur de service. 
-Alors dans le service `BladeTemplateService` situé dans `app/Services`.
-Dans la methode `make` ajoutez le code suivant
+Alors dans le service `BladeConfiguration` situé dans `app/Configurations`.
+Dans la methode `create` ajoutez le code suivant
 
 ```php
 <?php

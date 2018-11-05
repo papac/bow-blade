@@ -1,6 +1,6 @@
 # Bow blade support
 
-Support [Blade](https://laravel.com/docs/5.7/views) pour bow framework.
+Support [Blade](https://laravel.com/docs/5.7/views) pour [Bow Framework](https://github.com/bowapp/app).
 
 ## Usage
 
@@ -10,21 +10,20 @@ Installez une copie du package avec [composer](https://getcomposer.org).
 composer require papac/bow-blade
 ```
 
-Créez un service Bow.
-> Ce qui vous donnera complètement le control sur le service si vous voudriez y ajouter du code.
+Vous pouvez utiliser directement la configuration `\Papac\BladeConfiguration::class` fournir dans le package et aller le [confirgué](#configuration) ou bien créer une configuration Bow. Ce qui vous donnera complètement le control sur la configuration si vous voudriez y ajouter du code.
+
+### configuration manuellement
 
 ```bash
 php bow add:configuration BladeConfiguration
 ```
 
-Ajoutez le service dans le conteneur de service. 
-Alors dans le service `BladeConfiguration` situé dans `app/Configurations`.
-Dans la methode `create` ajoutez le code suivant
+Dans la configuration `BladeConfiguration` situé dans `app/Configurations`, ajouter le code suivant:
 
 ```php
 <?php
 
-namespace Papac;
+namespace App\Configurations;
 
 use Bow\View\View;
 use Bow\Configuration\Loader;
@@ -51,18 +50,16 @@ class BladeConfiguration extends Configuration
   /**
    * @inheritdoc
    */
-  public function start()
+  public function run()
   {
     $this->container->make('view');
   }
 }
 ```
 
-> Vous pouvez utiliser directement le service fournir dans le package. `Papac\BladeTemplateService::class`.
-
 ## Configuration
 
-Dans le fichier `Loader.php` du dossier `app/Kernel`. Ajoutez le service comme suit:
+Dans le fichier `Loader.php` du dossier `app/Kernel`. Ajoutez la configuration comme suit:
 
 ```php
 /**
@@ -77,13 +74,15 @@ public function configurations()
    */
   return [
     // other
-    \Papac\BladeConfiguration::class,
+    \App\Configurations\BladeConfiguration::class,
   ];
 }
 ```
 
 ## Author
 
-[DAKIA Franck](https://github.com/papac) - <dakiafranck@gmail.com> [@franck_dakia](https://twitter.com/@franck_dakia)
+**Franck Dakia** est un développeur Full Stack basé actuellement en Afrique, Côte d'ivore. Passioné de code, et développement collaboratif, Speaker, Formateur et Membre de plusieurs communautés de développeurs.
 
-> SVP s'il y a un bogue sur le projet veuillez me contacter sur mon [slack](https://bowphp.slack.com)
+Contact: [dakiafranck@gmail.com](mailto:dakiafranck@gmail.com) - [@franck_dakia](https://twitter.com/franck_dakia)
+
+**SVP s'il y a un bogue sur le projet veuillez me contacter par email ou laissez moi un message sur le [slack](https://bowphp.slack.com).**

@@ -13,8 +13,6 @@ class BladeConfiguration extends Configuration
      */
     public function create(Loader $config)
     {
-        $config['view.engine'] = 'blade';
-
         $this->container->bind('view', function () use ($config) {
             View::pushEngine('blade', BladeEngine::class);
             
@@ -27,7 +25,7 @@ class BladeConfiguration extends Configuration
     /**
      * @inheritdoc
      */
-    public function start()
+    public function run()
     {
         $this->container->make('view');
     }

@@ -27,7 +27,15 @@ class BladeEngine extends EngineAbstract
     {
         $this->config = $config;
 
-        $this->template = new BladeInstance($config['view.path'], $config['view.cache']);
+        $path = (array) realpath($config['view.path']);
+
+        $this->template = new BladeInstance($path[0], $config['view.cache']);
+
+        array_shift($path);
+
+        foreach ($path as $key => $value) {
+            $this->template->addPath($value);
+        }
     }
 
     /**

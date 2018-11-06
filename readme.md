@@ -37,7 +37,7 @@ class BladeConfiguration extends Configuration
   public function create(Loader $config)
   {
     $this->container->bind('view', function () use ($config) {
-      View::pushEngine('blade', BladeEngine::class);
+      View::pushEngine('blade', \Papac\BladeEngine::class);
       
       View::configure($config);
 
@@ -75,6 +75,17 @@ public function configurations()
     \App\Configurations\BladeConfiguration::class,
   ];
 }
+```
+
+Notez qui le nom du moteur de template ici est `blade`. C'est ce nom qui doit être utiliser dans la configuration des vues dans le fichier `config/view.php`. Ensuite mettez l'extension à `.blade.php` comme ceci.
+
+```php
+return [
+  'engine' => 'blade',
+  ...
+  'extension' => '.blade.php'
+  ...
+];
 ```
 
 ## Author

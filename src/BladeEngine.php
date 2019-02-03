@@ -9,11 +9,15 @@ use duncan3dc\Laravel\BladeInstance as BladeInstance;
 class BladeEngine extends EngineAbstract
 {
     /**
+     * The blade instance
+     *
      * @var BladeInstance
      */
     private $template;
 
     /**
+     * The template name
+     *
      * @var string
      */
     protected $name = 'blade';
@@ -22,6 +26,8 @@ class BladeEngine extends EngineAbstract
      * BladeEngine constructor.
      *
      * @param Config $config
+     *
+     * @return void
      */
     public function __construct(Config $config)
     {
@@ -39,7 +45,7 @@ class BladeEngine extends EngineAbstract
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      * @throws
      */
     public function render($filename, array $data = [])
